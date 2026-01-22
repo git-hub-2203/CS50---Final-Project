@@ -32,7 +32,7 @@ The application was designed as a learning project to practice:
 .
 ├── app.py              # Main Flask application
 ├── db.py               # Database helpers and queries
-├── users.db            # SQLite database (created at runtime)
+├── info.db            # SQLite database (created at runtime)
 ├── templates/
 │   └── home.html       # Main interface template
 ├── static/
