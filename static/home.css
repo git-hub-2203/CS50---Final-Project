@@ -11,6 +11,7 @@ body {
     padding-bottom: 2rem;
 }
 
+/* ===================== TITLE ===================== */
 .title {
     background: #0052cc;
     padding: 1.5rem 0;
@@ -21,13 +22,14 @@ body {
 }
 
 .title-manager {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: white;
     font-family: 'Pathway Gothic One', sans-serif;
     letter-spacing: 1px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* ===================== LAYOUT ===================== */
 .general {
     display: flex;
     flex-wrap: wrap;
@@ -38,19 +40,24 @@ body {
     padding: 0 1.5rem;
 }
 
+/* ===================== ADD PASSWORD ===================== */
 #add_password {
     background: white;
     box-shadow: 0 8px 25px rgba(0, 82, 204, 0.1);
-    margin: 0;
-    text-align: center;
     width: 100%;
     max-width: 500px;
     border-radius: 15px;
     padding: 2.5rem;
     border: 2px solid #e8f0ff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
+#add_password:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 82, 204, 0.15);
+    border-color: #0052cc;
+}
 
 #add_password h2 {
     color: #0052cc;
@@ -60,78 +67,77 @@ body {
     font-weight: 600;
 }
 
-.add_input, .textarea {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1rem;
+/* ===================== INPUTS ===================== */
+.add_input,
+.textarea {
     width: 100%;
     padding: 1rem;
     margin-bottom: 1.2rem;
     border: 2px solid #e8f0ff;
     border-radius: 8px;
-    transition: all 0.3s ease;
     background: #f8fbff;
     color: #003366;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
 
-.add_input:focus, .textarea:focus {
+.add_input:focus,
+.textarea:focus {
     outline: none;
     border-color: #0052cc;
     background: white;
     box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
 }
 
+.textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* ===================== PASSWORD FIELD ===================== */
 .password-container {
     position: relative;
     width: 100%;
     margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
 }
 
 .toggle-password {
     position: absolute;
     right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
     background: transparent;
     border: none;
-    color: #0052cc;
     cursor: pointer;
-    padding: 0.5rem;
+    color: #0052cc;
     font-size: 1.2rem;
-    transition: color 0.3s ease;
 }
 
 .toggle-password:hover {
     color: #003399;
 }
 
-.textarea {
-    height: 120px;
-    resize: vertical;
-    line-height: 1.5;
-}
-
+/* ===================== BUTTONS ===================== */
 .button {
     background: #0052cc;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
+    color: white;
     border: none;
     border-radius: 8px;
-    color: white;
     padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
     width: 100%;
-    margin-top: 0.5rem;
-    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
 }
 
 .button:hover {
+    background: #003399;
     transform: translateY(-2px);
     box-shadow: 0 7px 15px rgba(0, 82, 204, 0.25);
-    background: #003399;
 }
 
+/* ===================== PASSWORD LIST ===================== */
 .container-password {
     background: white;
     border-radius: 15px;
@@ -147,23 +153,22 @@ body {
     font-size: 2rem;
     margin-bottom: 1rem;
     font-family: 'Pathway Gothic One', sans-serif;
-    font-weight: 600;
 }
 
 .container-password h2:nth-child(2) {
     color: #3366cc;
     font-size: 1.3rem;
     margin-bottom: 2rem;
-    font-weight: normal;
 }
 
+/* ===================== PASSWORD CARD ===================== */
 .box-password {
     background: #f8fbff;
     border-radius: 12px;
     margin-bottom: 1.5rem;
     border: 2px solid #e8f0ff;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-out;
 }
 
 .box-password:hover {
@@ -175,41 +180,25 @@ body {
     padding: 1.5rem;
     font-size: 1.2rem;
     font-weight: 600;
-    color: #003366;
     cursor: pointer;
-    list-style: none;
-    position: relative;
-    transition: background-color 0.3s ease;
     background: linear-gradient(to right, #f8fbff, #eef5ff);
+    position: relative;
+    list-style: none;
 }
 
-.box-password summary:hover {
-    background: linear-gradient(to right, #eef5ff, #e0ebff);
-}
-
-.box-password summary::-webkit-details-marker {
-    display: none;
-}
-
-.box-password summary:after {
+.box-password summary::after {
     content: '+';
     position: absolute;
     right: 1.5rem;
     font-size: 1.5rem;
     color: #0052cc;
-    font-weight: bold;
-    transition: transform 0.3s ease;
 }
 
-.box-password[open] summary:after {
+.box-password[open] summary::after {
     content: '−';
 }
 
-.box-password[open] summary {
-    border-bottom: 2px solid #e8f0ff;
-    background: #eef5ff;
-}
-
+/* ===================== FORMS ===================== */
 .box-password form {
     padding: 2rem;
 }
@@ -220,81 +209,151 @@ body {
     margin-bottom: 1rem;
     border: 2px solid #e8f0ff;
     border-radius: 8px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    background: white;
-    color: #003366;
+    font-size: 1em;
 }
 
-.box-password input:focus {
-    outline: none;
-    border-color: #0052cc;
-    box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+/* ===================== SAVE / DELETE ROW ===================== */
+.btn-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    flex-wrap: nowrap;
 }
 
-.box-password p {
-    margin: 1rem 0;
-    text-align: left;
-    color: #3366cc;
+/* override padding from .box-password form */
+.btn-row form {
+    padding: 0 !important;
+    margin: 0;
+    display: flex;
+    align-items: center;
 }
 
-.box-password a {
-    color: #0052cc;
-    text-decoration: none;
+.btn-row .update-form {
+    flex: 1;
+}
+
+.btn-row .delete-form {
+    flex: 0 0 auto;
+}
+
+.btn-save,
+.btn-delete {
+    height: 42px;
+    min-width: 110px;
+    padding: 0 1.5rem;
+    border-radius: 8px;
+    border: none;
     font-weight: 500;
-    transition: color 0.3s ease;
-    display: inline-block;
-    padding: 0.5rem;
-    border-radius: 4px;
-    background: #f8fbff;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 1.2em;
 }
 
-.box-password a:hover {
-    color: #003399;
-    text-decoration: underline;
-    background: #eef5ff;
-}
-
-.box-password button[type="submit"] {
+.btn-save {
     background: #0052cc;
     color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    margin-right: 0.5rem;
-    min-width: 100px;
-    border: 2px solid transparent;
 }
 
-.box-password button[type="submit"]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 82, 204, 0.2);
+.btn-save:hover {
     background: #003399;
 }
 
-.box-password form:last-of-type button[type="submit"] {
+.btn-delete {
     background: #cc0000;
+    color: white;
 }
 
-.box-password form:last-of-type button[type="submit"]:hover {
+.btn-delete:hover {
     background: #990000;
-    box-shadow: 0 5px 15px rgba(204, 0, 0, 0.2);
 }
 
+/* ===================== LINK DISPLAY ===================== */
+.show-link {
+    margin: 1.5rem 0 1rem 0;
+    padding: 1rem;
+    background: #f8fbff;
+    border-radius: 8px;
+    border-left: 4px solid #0052cc;
+    text-align: left;
+    font-size: 1rem;
+    color: #003366;
+    box-shadow: 0 2px 8px rgba(0, 82, 204, 0.1);
+}
 
+.show-link a {
+    color: #0052cc;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    background: white;
+    border-radius: 6px;
+    border: 2px solid #e8f0ff;
+    display: inline-block;
+    margin-left: 0.5rem;
+    transition: all 0.3s ease;
+    word-break: break-all;
+    max-width: 100%;
+}
 
-/* Utility classes for blue shades */
-.bg-blue-50 { background: #f0f5ff; }
-.bg-blue-100 { background: #e0ebff; }
-.bg-blue-200 { background: #c2d6ff; }
-.bg-blue-300 { background: #a3c2ff; }
-.bg-blue-400 { background: #85adff; }
-.bg-blue-500 { background: #6699ff; }
-.bg-blue-600 { background: #4786ff; }
-.bg-blue-700 { background: #2973ff; }
-.bg-blue-800 { background: #0a60ff; }
-.bg-blue-900 { background: #0052cc; }
+.show-link a:hover {
+    color: white;
+    background: #0052cc;
+    border-color: #0052cc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 82, 204, 0.2);
+    text-decoration: none;
+}
+
+.show-link a:active {
+    transform: translateY(0);
+}
+
+/* Optional: Add an icon before the link */
+.show-link:before {
+    content: "🔗";
+    margin-right: 0.5rem;
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+/* ===================== UTILITIES ===================== */
+.bg-blue-50 {
+    background: #f0f5ff;
+}
+
+.bg-blue-100 {
+    background: #e0ebff;
+}
+
+.bg-blue-200 {
+    background: #c2d6ff;
+}
+
+.bg-blue-300 {
+    background: #a3c2ff;
+}
+
+.bg-blue-400 {
+    background: #85adff;
+}
+
+.bg-blue-500 {
+    background: #6699ff;
+}
+
+.bg-blue-600 {
+    background: #4786ff;
+}
+
+.bg-blue-700 {
+    background: #2973ff;
+}
+
+.bg-blue-800 {
+    background: #0a60ff;
+}
+
+.bg-blue-900 {
+    background: #0052cc;
+}

@@ -24,7 +24,7 @@
                 <input type="text" placeholder="Name" required name="name" class="add_input">
                 <input type="text" placeholder="Login" required name="login" class="add_input">
                 <div class="password-container">
-                    <input type="password" id="passwordAdd" class="add_input" placeholder="password" required
+                    <input type="password" id="passwordAdd" class="add_input" placeholder="Password" required
                         name="password">
                     <button type="button" class="toggle-password" onclick="togglePasswordVisibility('passwordAdd')"><i
                             class="fas fa-eye"></i></button>
@@ -36,35 +36,49 @@
         <div class="container-password">
             <h2>Repository</h2>
             <h2>Total passwords: {{ rows }}</h2>
-
+            {% if rows == 0 %}
+            <p style="text-align: center; font-family:'Courier New', Courier, monospace">Nothing yet '-'</p>
+            {% endif %}
 
             {% for index, user in data %}
             <details class="box-password">
                 <summary>{{ user.name }}</summary>
-                <form action="/update_password" method="post">
-                    <input type="hidden" name="link" value="{{ user.link }}">
-                    <input type="text" value="{{ user.name }}" required placeholder="Name" name="name">
-                    <input type="text" value="{{ user.login }}" required placeholder="Login" name="login">
-                    <div class="password-container">
-                        <input type="password" class="passwordField" placeholder="Password" required name="password"
-                            value="{{ user.password }}">
-                        <button type="button" class="toggle-password"
-                            onclick="togglePasswordVisibility(this.parentElement.querySelector('input'))"><i
-                                class="fas fa-eye"></i></button>
-                    </div>
-                    <input type="text" value="{{ user.note }}" required placeholder="Note" name="note">
-                    <p><a href="{{ user.link }}" target="_blank">Link: {{ user.link }}</a></p>
-                    <button type="submit">Save</button>
-                </form>
-                <form action="/delete_password" method="post">
-                    <input type="hidden" name="link" value="{{ user.link }}">
-                    <button type="submit">Delete</button>
-                </form>
-            </details>
-            {% endfor %}
+
+                <div class="actions-row">
+                    <form action="/update_password" method="post" class="update-form">
+                        <input type="hidden" name="link" value="{{ user.link }}">
+
+                        <input type="text" value="{{ user.name }}" required placeholder="Name" name="name">
+                        <input type="text" value="{{ user.login }}" required placeholder="Login" name="login">
+
+                        <div class="password-container">
+                            <input type="password" class="passwordField" placeholder="Password" required name="password"
+                                value="{{ user.password }}">
+                            <button type="button" class="toggle-password"
+                                onclick="togglePasswordVisibility(this.parentElement.querySelector('input'))">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+
+                        <input type="text" value="{{ user.note }}" required placeholder="Note" name="note">
+
+                        <p class="show-link">Link: <a href="{{ user.link }}" target="_blank">{{ user.link }}</a></p>
+
+                        <div class="btn-row">
+                            <button type="submit" class="btn-save">Save</button>
+                    </form>
+
+                    <form method="post" action="/delete_password" class="delete-form">
+                        <input type="hidden" name="link" value="{{ user.link }}">
+                        <button type="submit" class="btn-delete">Delete</button>
+                    </form>
+                </div>
+        </div>
+        </details>
+
+        {% endfor %}
         </div>
     </section>
-
 
     <script src="/static/index.js"></script>
 </body>
