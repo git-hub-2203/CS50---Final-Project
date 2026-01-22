@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/home.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="title">
+        <h2 class="title-manager">Password Manager 🔐</h2>
+    </div>
+
+    <section class="general">
+        <div id="add_password">
+            <h2>Add Password</h2>
+            <form id="passwordForm" action="/add_password" method="post">
+                <input type="text" placeholder="Link" required name="link" pattern="https?://.+"
+                    title="Please enter a valid URL" class="add_input">
+                <input type="text" placeholder="Name" required name="name" class="add_input">
+                <input type="text" placeholder="Login" required name="login" class="add_input">
+                <div class="password-container">
+                    <input type="password" id="passwordAdd" class="add_input" placeholder="password" required
+                        name="password">
+                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility('passwordAdd')"><i
+                            class="fas fa-eye"></i></button>
+                </div>
+                <textarea placeholder="Notes" required rows="5" name="note" class="textarea"></textarea>
+                <button type="submit" class="button">+ Add</button>
+            </form>
+        </div>
+        <div class="container-password">
+            <h2>Repository</h2>
+            <h2>Total passwords: {{ rows }}</h2>
+
+
+            {% for index, user in data %}
+            <details class="box-password">
+                <summary>{{ user.name }}</summary>
+                <form action="/update_password" method="post">
+                    <input type="hidden" name="link" value="{{ user.link }}">
+                    <input type="text" value="{{ user.name }}" required placeholder="Name" name="name">
+                    <input type="text" value="{{ user.login }}" required placeholder="Login" name="login">
+                    <div class="password-container">
+                        <input type="password" class="passwordField" placeholder="Password" required name="password"
+                            value="{{ user.password }}">
+                        <button type="button" class="toggle-password"
+                            onclick="togglePasswordVisibility(this.parentElement.querySelector('input'))"><i
+                                class="fas fa-eye"></i></button>
+                    </div>
+                    <input type="text" value="{{ user.note }}" required placeholder="Note" name="note">
+                    <p><a href="{{ user.link }}" target="_blank">Link: {{ user.link }}</a></p>
+                    <button type="submit">Save</button>
+                </form>
+                <form action="/delete_password" method="post">
+                    <input type="hidden" name="link" value="{{ user.link }}">
+                    <button type="submit">Delete</button>
+                </form>
+            </details>
+            {% endfor %}
+        </div>
+    </section>
+
+
+    <script src="/static/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{% for index, user in data %}
+<details>
+    <summary>{{ user.name }}</summary>
+    <p><strong>Link: </strong><a target="_blank" href="{{ user.link }}"> {{user.link}} </a></p>
+    <p><strong>Login:</strong> {{ user.login }}</p>
+    <p><strong>Password:</strong> {{ user.password }}</p>
+    <p><strong>Note:</strong> {{ user.note }}</p>
+    <button type="submit">Edit</button><br><br>
+    <form method="POST" action="/delete_password">
+        <input type="hidden" name="link" value="{{ user.link }}">
+        <button type="submit">Delete</button>
+    </form>
+</details>
+{% endfor %}
+
+{1: {'link': 'https://mangadex.org/', 'name': 'Mangadex', 'login': 'phnp2010@gmail.com', 'password': 'retr07678', 'note': 'Where I can read Manga'}, 2: {'link': 'https://google.com', 'name': 'Google', 'login': 'phnp2010@gmail.com', 'password': 'retr07678', 'note': 'Google Account'}}

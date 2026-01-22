@@ -1,0 +1,300 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f0f5ff;
+    min-height: 100vh;
+    padding-bottom: 2rem;
+}
+
+.title {
+    background: #0052cc;
+    padding: 1.5rem 0;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 82, 204, 0.15);
+    margin-bottom: 3rem;
+}
+
+.title-manager {
+    font-size: 2.5rem;
+    color: white;
+    font-family: 'Pathway Gothic One', sans-serif;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.general {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+#add_password {
+    background: white;
+    box-shadow: 0 8px 25px rgba(0, 82, 204, 0.1);
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    padding: 2.5rem;
+    border: 2px solid #e8f0ff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+#add_password h2 {
+    color: #0052cc;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-weight: 600;
+}
+
+.add_input, .textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+    border: 2px solid #e8f0ff;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: #f8fbff;
+    color: #003366;
+}
+
+.add_input:focus, .textarea:focus {
+    outline: none;
+    border-color: #0052cc;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1.2rem;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #0052cc;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: #003399;
+}
+
+.textarea {
+    height: 120px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.button {
+    background: #0052cc;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 15px rgba(0, 82, 204, 0.25);
+    background: #003399;
+}
+
+.container-password {
+    background: white;
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 25px rgba(0, 82, 204, 0.1);
+    width: 100%;
+    max-width: 700px;
+    border: 2px solid #e8f0ff;
+}
+
+.container-password h2:first-child {
+    color: #0052cc;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-weight: 600;
+}
+
+.container-password h2:nth-child(2) {
+    color: #3366cc;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    font-weight: normal;
+}
+
+.box-password {
+    background: #f8fbff;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    border: 2px solid #e8f0ff;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.box-password:hover {
+    border-color: #0052cc;
+    box-shadow: 0 5px 15px rgba(0, 82, 204, 0.1);
+}
+
+.box-password summary {
+    padding: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #003366;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    transition: background-color 0.3s ease;
+    background: linear-gradient(to right, #f8fbff, #eef5ff);
+}
+
+.box-password summary:hover {
+    background: linear-gradient(to right, #eef5ff, #e0ebff);
+}
+
+.box-password summary::-webkit-details-marker {
+    display: none;
+}
+
+.box-password summary:after {
+    content: '+';
+    position: absolute;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    color: #0052cc;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.box-password[open] summary:after {
+    content: '−';
+}
+
+.box-password[open] summary {
+    border-bottom: 2px solid #e8f0ff;
+    background: #eef5ff;
+}
+
+.box-password form {
+    padding: 2rem;
+}
+
+.box-password input:not([type="hidden"]) {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid #e8f0ff;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    color: #003366;
+}
+
+.box-password input:focus {
+    outline: none;
+    border-color: #0052cc;
+    box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+}
+
+.box-password p {
+    margin: 1rem 0;
+    text-align: left;
+    color: #3366cc;
+}
+
+.box-password a {
+    color: #0052cc;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    display: inline-block;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background: #f8fbff;
+}
+
+.box-password a:hover {
+    color: #003399;
+    text-decoration: underline;
+    background: #eef5ff;
+}
+
+.box-password button[type="submit"] {
+    background: #0052cc;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-right: 0.5rem;
+    min-width: 100px;
+    border: 2px solid transparent;
+}
+
+.box-password button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 82, 204, 0.2);
+    background: #003399;
+}
+
+.box-password form:last-of-type button[type="submit"] {
+    background: #cc0000;
+}
+
+.box-password form:last-of-type button[type="submit"]:hover {
+    background: #990000;
+    box-shadow: 0 5px 15px rgba(204, 0, 0, 0.2);
+}
+
+
+
+/* Utility classes for blue shades */
+.bg-blue-50 { background: #f0f5ff; }
+.bg-blue-100 { background: #e0ebff; }
+.bg-blue-200 { background: #c2d6ff; }
+.bg-blue-300 { background: #a3c2ff; }
+.bg-blue-400 { background: #85adff; }
+.bg-blue-500 { background: #6699ff; }
+.bg-blue-600 { background: #4786ff; }
+.bg-blue-700 { background: #2973ff; }
+.bg-blue-800 { background: #0a60ff; }
+.bg-blue-900 { background: #0052cc; }
