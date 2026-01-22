@@ -1,6 +1,5 @@
 from flask import Flask, render_template, redirect, request, session
 from db import init_db, get_data, get_db_connection, using_db, update_data
-import re
 
 DATA = {}
 
